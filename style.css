@@ -1,0 +1,226 @@
+@font-face{font-family:Kurier;src:local('Kurier Regular'),local('Kurier-Regular'),url('assets/fonts/Kurier-Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Kurier;src:local('Kurier Italic'),local('Kurier-Italic'),url('assets/fonts/Kurier-Italic.otf') format('opentype');font-weight:400;font-style:italic;font-display:swap}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:#000;font:18px/1.55 Kurier,'Trebuchet MS',sans-serif}
+main{max-width:900px;width:calc(100% - 72px);margin:auto;position:relative}
+a{color:inherit;text-underline-offset:4px}a:hover{text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:1px solid;outline-offset:5px}
+img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
+h1,h2,p{font-weight:400;margin:0}h2{font-size:18px;letter-spacing:.16em}
+header,section{position:relative}
+header{max-width:680px;margin:76px auto 0}
+h1{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,4vw,48px);font-size:clamp(20px,3.5vw,34px);letter-spacing:.15em;line-height:1.5}
+h1 span,.byline{background:#000;color:#fff;text-align:center;padding:4px 8px}.byline{margin-top:14px;letter-spacing:.24em;font-size:17px}
+
+.page-lines{max-width:680px;margin-left:auto;margin-right:auto}
+.page-lines::before,.page-lines::after{content:'';position:absolute;top:0;bottom:0;width:12px;pointer-events:none;opacity:1}
+.page-lines::before{left:-34px;border-left:1px solid #000;border-right:1px solid #000}
+.page-lines::after{right:-34px;border-left:1px solid #000;border-right:1px solid #000}
+.mast.page-lines::before,.mast.page-lines::after{top:6px;bottom:6px}
+.threshold.page-lines::before,.threshold.page-lines::after{top:12px;bottom:12px}
+.reading.page-lines::before,.reading.page-lines::after{top:0;bottom:20px}
+.interlude.page-lines::before,.interlude.page-lines::after{top:10px;bottom:28px}
+.map.page-lines::before,.map.page-lines::after{top:8px;bottom:10px}
+.book.page-lines::before,.book.page-lines::after{top:18px;bottom:18px}
+.edition.page-lines::before,.edition.page-lines::after{top:18px;bottom:22px}
+
+.threshold{text-align:center;padding:80px 0 100px}.seal{width:92px;margin:auto;position:relative;z-index:2}.opening{font-size:clamp(23px,3.5vw,35px);line-height:1.35;margin:42px 0 28px;letter-spacing:.025em;position:relative;z-index:2}
+.cipher{position:relative;display:inline-grid;place-items:center;min-height:30px;vertical-align:middle;z-index:2}.cipher .glyphs,.cipher .plain{grid-area:1/1;transition:opacity .23s ease}.cipher .plain{opacity:0;letter-spacing:.08em;font-size:14px}.cipher:hover .glyphs,.cipher:focus-visible .glyphs,.cipher.revealed .glyphs{opacity:0}.cipher:hover .plain,.cipher:focus-visible .plain,.cipher.revealed .plain{opacity:1}.glyphs{display:flex;gap:3px;align-items:center}.glyphs svg{width:14px;height:14px;display:block}.glyphs .space{width:7px}
+
+.reading{display:grid;grid-template-columns:120px minmax(0,560px);gap:36px;justify-content:center;padding:45px 0 85px}
+.fulu-aside{display:flex;align-items:flex-start;gap:12px;justify-content:flex-start;padding-top:12px}
+.fulu-wrap{display:block;width:30px;flex:0 0 30px}.fulu{width:100%}
+.copy p{margin:0 0 1.3em}.copy a,.book a,.edition a{font-size:14px}
+.aside-fragment{max-width:150px;margin:0;text-align:left;font-size:12px;line-height:1.45}
+
+.interlude{padding:25px 0 100px;text-align:center;position:relative}.interlude .si-image{width:min(55%,400px);margin:0 auto 42px}
+.map{padding:28px 0 110px}.map h2{margin-bottom:26px}.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:52px;align-items:center}.chapters div{display:flex;align-items:baseline;gap:8px;font-size:17px;letter-spacing:.055em;margin:9px 0}.chapters i{flex:1;border-bottom:1px dotted;min-width:12px}.labyrinth{width:74px;display:block;margin:auto}
+.fragment{font-size:14px;line-height:1.6;max-width:420px;margin:16px auto;text-align:center}.fragment sup{font-size:10px;margin-left:6px}
+.book{border-top:1px solid;padding:32px 0 90px}.bookgrid{display:grid;grid-template-columns:minmax(0,1fr) 100px;gap:30px;margin-top:28px;align-items:start}.bookgrid p{margin-bottom:20px}.cover-preview{display:block;width:min(100%,320px);margin-top:10px}.cover-preview img{border:1px solid #000;padding:10px;background:#fff}.cover-fragment{max-width:320px;text-align:left}.veve{width:88px;margin:auto}
+.edition{border-top:1px solid;display:flex;justify-content:space-between;align-items:end;gap:22px;padding:38px 0 75px}.edition p{margin-bottom:12px}#order-note{font-size:12px;margin-top:10px}
+.discovery{transition:transform .2s ease, opacity .2s ease}.discovery:hover,.discovery:focus-visible{transform:translateY(-1px)}
+
+@media(max-width:760px){.page-lines::before{left:-18px}.page-lines::after{right:-18px}}
+@media(max-width:640px){main{width:calc(100% - 36px)}header{margin-top:38px}h1{letter-spacing:.07em}.byline{font-size:14px}.threshold{padding:65px 0}.reading{grid-template-columns:1fr;gap:18px;padding:22px 0 55px}.fulu-aside{padding-top:0;align-items:center}.fulu-wrap{width:20px;flex-basis:20px}.aside-fragment{max-width:220px}.interlude{padding-bottom:70px}.mapgrid{grid-template-columns:1fr 55px;gap:15px}.labyrinth{width:48px}.chapters div{font-size:14px;letter-spacing:0}.map{padding-bottom:70px}.bookgrid{grid-template-columns:minmax(0,1fr) 60px;gap:12px}.veve{width:54px}.edition{padding-bottom:50px}.glyphs svg{width:12px;height:12px}.glyphs{gap:2px}.opening br{display:none}.cover-preview{width:100%}.cover-preview img{padding:6px}.page-lines::before{left:-10px;width:7px}.page-lines::after{right:-10px;width:7px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cipher *,.discovery{transition:none}}
+/* Progressive folio rules, echoing the printed manuscript. */
+.page-lines{--n:1}.threshold{--n:2}.reading{--n:3}.interlude{--n:4}.map{--n:5}.book{--n:6}.edition{--n:7}
+.page-lines::before,.page-lines::after{border:0;width:calc(var(--n) * 3px - 2px);background:repeating-linear-gradient(to right,#000 0 1px,transparent 1px 3px);mask-image:linear-gradient(to bottom,#000 0 38%,transparent 38% 67%,#000 67% 100%)}
+.page-lines::before{left:auto;right:calc(100% + 12px)}.page-lines::after{right:auto;left:calc(100% + 12px)}
+.map h2{letter-spacing:.24em;font-size:21px;margin-bottom:22px}.mapgrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;align-items:start}.chapters{padding-left:12px}.chapters div{letter-spacing:.16em;font-size:14px;gap:5px}.map-left .labyrinth{margin:36px auto 0}.circuits{display:grid;gap:24px;align-content:start}.circuits img{width:100%;height:auto}.cover-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}.cover-pair img{width:100%;height:auto;border:0;mix-blend-mode:normal}.bookgrid{grid-template-columns:minmax(0,1fr) 88px;gap:24px}.fulu-aside .aside-fragment{margin:0;font-size:12px;line-height:1.45;text-align:left;overflow-wrap:anywhere}.reading{grid-template-columns:155px minmax(0,1fr);gap:24px}
+@media(max-width:760px){main{width:calc(100% - 76px)}.page-lines::before{right:calc(100% + 5px)}.page-lines::after{left:calc(100% + 5px)}}
+@media(max-width:640px){.reading,.mapgrid,.bookgrid{grid-template-columns:1fr}.map h2{font-size:16px;letter-spacing:.15em}.chapters div{letter-spacing:.07em}.cover-pair{gap:8px}.bookgrid>div:last-child{margin-top:22px}.fulu-aside .aside-fragment{max-width:240px}.page-lines::before,.page-lines::after{width:calc(var(--n) * 2px - 1px);background:repeating-linear-gradient(to right,#000 0 1px,transparent 1px 2px)}}
+
+/* Four continuous folio runs. */
+.folio{position:relative;max-width:680px;margin:0 auto 58px;display:flow-root;--n:1}
+.folio-two{--n:2}.folio-three{--n:3}.folio-four{--n:4}
+.folio::before,.folio::after{content:"";position:absolute;top:0;bottom:0;width:calc(var(--n) * 4px - 3px);background:repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 4px);pointer-events:none}
+.folio::before{right:calc(100% + 14px)}.folio::after{left:calc(100% + 14px)}
+.mast{margin-top:0}.folio-one{margin-top:76px}.threshold{padding-bottom:0}.reading{padding-top:0;padding-bottom:34px}.interlude{padding:0;text-align:center}.map{padding-top:0;padding-bottom:70px}.book{border:0;padding:0}.bookgrid{display:block;margin:0}.book h2,.map h2{font-size:21px;letter-spacing:.24em;margin:0 0 22px;text-transform:uppercase;line-height:1.5}.edition{border:0;padding:0 0 20px;align-items:start}.folio-four{margin-bottom:76px}.fulu-aside{display:flex;flex-direction:column;gap:36px}.margin-symbol{display:flex;align-items:flex-start;gap:10px;width:100%}.solomon{width:38px;flex:0 0 38px}.margin-symbol .aside-fragment{flex:1;min-width:0}.seal{width:160px}.edition-symbol{width:100px;text-align:center}.edition-symbol .veve{width:64px}.edition-symbol .fragment{font-size:12px}.cover-pair{gap:24px}
+@media(max-width:760px){main{width:calc(100% - 72px)}.folio::before{right:calc(100% + 6px)}.folio::after{left:calc(100% + 6px)}}
+@media(max-width:640px){.folio-one{margin-top:38px}.folio{margin-bottom:44px}.folio::before,.folio::after{width:calc(var(--n) * 3px - 2px);background:repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 3px)}.book h2,.map h2{font-size:16px;letter-spacing:.15em}.fulu-aside{gap:18px}.edition{flex-wrap:wrap}.cover-pair{gap:8px}.bookgrid>div:last-child{margin:0}.glyphs{gap:1px}.glyphs svg{width:10px}.glyphs .space{width:4px}}
+/* Equal title and author bar heights. */
+.mast h1 span,.mast .byline{height:clamp(44px,6vw,60px);display:flex;align-items:center;justify-content:center;padding-block:0}
+.fulu-aside{gap:76px}
+.edition-marks{display:flex;flex-direction:column;align-items:flex-start;gap:30px}
+.edition-marks .edition-symbol{width:100%;max-width:220px;text-align:left}
+.edition-marks .veve{display:block;margin:0;width:64px}
+.edition-marks .fragment{text-align:left;margin:12px 0 0}
+/* The first rule remains continuous; additional rules have a central interruption, as on the manuscript pages. */
+.folio::before,.folio::after{background:linear-gradient(#000,#000) left top / 1px 100% no-repeat,repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 4px) left top / 100% 38% no-repeat,repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 4px) left bottom / 100% 33% no-repeat}
+.folio::before{transform:scaleX(-1)}
+@media(max-width:640px){.fulu-aside{gap:42px}.folio::before,.folio::after{background:linear-gradient(#000,#000) left top / 1px 100% no-repeat,repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 3px) left top / 100% 38% no-repeat,repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 3px) left bottom / 100% 33% no-repeat}}
+
+/* Hidden fragments retain their exact layout footprint. */
+.margin-symbol .fragment[hidden], .edition-symbol .fragment[hidden]{display:block;visibility:hidden}
+.fulu-aside{gap:76px}
+.margin-symbol{align-items:flex-start}
+.edition-marks{width:220px;max-width:100%;flex-shrink:0}
+.edition-marks .edition-symbol{width:100%;max-width:220px}
+.opening-pages{margin-top:34px;font-size:14px}
+@media(max-width:640px){.fulu-aside{gap:42px}.edition-marks{width:220px;max-width:100%}}
+
+
+/* Additional manuscript-side imagery and third margin symbol */
+main{position:relative}
+.margin-art{position:absolute;z-index:0;pointer-events:none;opacity:.28;mix-blend-mode:multiply}
+.margin-art img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
+.margin-left{left:0;top:27%;width:88px;transform:translateX(-128px)}
+.margin-right{right:0;top:36%;width:95px;transform:translateX(132px)}
+.reading,.map,.book,.edition,.threshold,.mast,.interlude{z-index:1}
+.double-star-wrap{padding-left:2px}
+.double-star{width:56px;max-width:56px;display:block}
+.fulu-aside .double-star-wrap{margin-top:-16px}
+
+@media(max-width:980px){
+  .margin-left{transform:translateX(-108px);width:72px}
+  .margin-right{transform:translateX(110px);width:78px}
+}
+@media(max-width:760px){
+  .margin-art{display:none}
+  .double-star{width:48px;max-width:48px}
+}
+
+
+/* v14 refinement: margin images span the full margin; pigpen hover-only; aligned triad */
+.cipher{cursor:default}
+.fulu-aside{gap:64px}
+.margin-symbol{display:grid;grid-template-columns:38px minmax(0,1fr);column-gap:10px;align-items:start;width:100%}
+.fulu-wrap,.solomon,.double-star-btn{width:38px;min-width:38px;display:flex;justify-content:center;align-items:flex-start}
+.fulu{width:24px}
+.solomon img{width:38px}
+.double-star-btn{padding-top:2px}
+.double-star{width:24px;max-width:24px;display:block}
+.double-star-wrap{padding-left:0;margin-top:0}
+.margin-symbol .aside-fragment{max-width:none}
+
+/* Large vertical marginal presences */
+.margin-art{top:0;bottom:0;width:132px;opacity:.22;display:flex;align-items:stretch}
+.margin-art img{width:100%;height:100%;object-fit:contain;object-position:center top}
+.margin-left{left:0;transform:translateX(-154px)}
+.margin-right{right:0;transform:translateX(154px)}
+
+@media(max-width:1100px){
+  .margin-art{width:112px}
+  .margin-left{transform:translateX(-132px)}
+  .margin-right{transform:translateX(132px)}
+}
+@media(max-width:760px){
+  .margin-art{display:none}
+  .double-star{width:20px;max-width:20px}
+  .fulu-aside{gap:40px}
+  .margin-symbol{grid-template-columns:32px minmax(0,1fr);column-gap:10px}
+  .fulu-wrap,.solomon,.double-star-btn{width:32px;min-width:32px}
+  .fulu{width:20px}
+  .solomon img{width:32px}
+}
+
+/* Full-height circuit fields, one original drawing on each side. */
+.circuit-margin{position:absolute;top:0;bottom:0;width:calc((100vw - 680px)/2 - 36px);pointer-events:none;opacity:.38;background-repeat:repeat-y;background-size:auto 100%;z-index:-1;overflow:hidden}
+.circuit-left{right:calc(100% + 36px);background-image:url(assets/margin-left.svg);background-position:right top}
+.circuit-right{left:calc(100% + 36px);background-image:url(assets/margin-right.svg);background-position:left top}
+.folio{isolation:isolate}.circuits img{width:min(100%,210px);margin:0 auto}.double-star-btn{padding-top:0}.double-star{width:34px;max-width:34px}.fulu-aside .double-star-wrap{margin-top:0}.threshold .fragment[hidden],.map .fragment[hidden]{display:block;visibility:hidden}
+@media(max-width:900px){.circuit-margin{display:none}}
+@media(max-width:640px){.double-star{width:30px;max-width:30px}}
+
+/* Folio-specific circuit cropping. Preserve the same approximate drawing scale
+   rather than stretching each complete drawing to the height of its folio. */
+.folio-two .circuit-left{background-image:url(assets/margin-right.svg);transform:rotate(180deg);background-position:left top}
+.folio-two .circuit-right{background-image:url(assets/margin-left.svg);transform:rotate(180deg);background-position:right top}
+.folio-three .circuit-margin{background-size:auto clamp(520px, 68vh, 760px)}
+.folio-four .circuit-margin{background-size:auto clamp(520px, 68vh, 760px)}
+/* A reversible elementary cellular automaton in the title bars. */
+.mast h1 span,.mast .byline{position:relative;isolation:isolate;overflow:hidden}
+.mast .automaton{position:absolute;inset:0;width:100%;height:100%;z-index:-1;image-rendering:pixelated;pointer-events:none}
+.mast .bar-lettering{position:relative;z-index:1;color:#fff;mix-blend-mode:difference}
+@media(prefers-reduced-motion:reduce){.mast .automaton{display:none}}
+
+/* Single continuous circuit field on folio III; crop the lateral edges. */
+.folio-three .circuit-margin{background-repeat:no-repeat;background-size:auto 100%;}
+.folio-three .circuit-left{background-position:65% center;}
+.folio-three .circuit-right{background-position:35% center;}
+/* Folio IV: opposing fragments of one horizontal schematic. */
+.folio-four .circuit-margin{background-image:url(assets/circuit-horizontal.svg);background-repeat:no-repeat;background-size:auto 125%;}
+.folio-four .circuit-left{background-position:left center;}
+.folio-four .circuit-right{background-position:right center;}
+
+/* All folios share the same outer circuit column geometry. */
+.folio{--circuit-strip:min(200px, calc((100vw - 680px)/2 - 36px))}
+.circuit-margin{width:var(--circuit-strip);background-repeat:no-repeat}
+.folio-three .circuit-margin{background-size:auto 100%;background-position:center center}
+/* View opposite ends of a single horizontal drawing at a common scale.
+   Anchor the drawing to the occupied area rather than an empty outer edge. */
+.folio-four .circuit-margin{background-size:calc(680px + 72px + 2 * var(--circuit-strip)) auto;background-repeat:no-repeat}
+.folio-four .circuit-left{background-position:5% center}
+.folio-four .circuit-right{background-position:95% center}
+
+/* Veiled circuit ink; folio IV uses the same proven vertical crops as I. */
+.circuit-margin{opacity:.24;filter:blur(.35px)}
+.folio-four .circuit-left{background-image:url(assets/margin-left.svg);background-size:auto 100%;background-position:center center}
+.folio-four .circuit-right{background-image:url(assets/margin-right.svg);background-size:auto 100%;background-position:center center}
+/* Fill short folios with an interior crop, avoiding blank space at either edge. */
+.folio-four .circuit-margin{background-size:auto max(100%, 480px);}
+
+/* Quiet local automata, beneath the same veil as the circuit ink. */
+.circuit-automaton{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;image-rendering:pixelated;opacity:.45;mix-blend-mode:multiply}
+@media(prefers-reduced-motion:reduce){.circuit-automaton{display:none}}
+
+/* Independent ink and automaton layers: preserve the veil without hiding motion. */
+.circuit-margin{opacity:1;filter:none;}
+.circuit-margin::before{content:"";position:absolute;inset:0;background-image:inherit;background-size:inherit;background-position:inherit;background-repeat:inherit;opacity:.24;filter:blur(.35px);pointer-events:none;}
+.circuit-margin{background-color:transparent;}
+.circuit-automaton{opacity:.32;mix-blend-mode:normal;filter:blur(.12px);z-index:1;}
+
+.circuit-margin{background-clip:text;-webkit-background-clip:text;}
+.circuit-margin::before{background-clip:border-box;-webkit-background-clip:border-box;}
+
+
+/* v26 refinement: equidistant slide-2 margin symbols */
+.fulu-aside{justify-content:space-between;gap:0;min-height:440px}
+@media(max-width:640px){.fulu-aside{justify-content:flex-start;gap:42px;min-height:0}}
+
+/* Equal centre-to-centre spacing for the three folio II symbols. */
+.folio-two .fulu-aside{display:grid;grid-template-rows:repeat(3,minmax(min-content,1fr));grid-auto-flow:row;gap:20px;align-items:stretch;justify-content:stretch;min-height:440px;padding-top:0}
+.folio-two .margin-symbol{align-items:center;margin:0;padding:0}
+.folio-two .margin-symbol .discovery{align-self:center;justify-self:center;align-items:center;transform:none}
+.folio-two .margin-symbol .aside-fragment{align-self:center}
+@media(max-width:640px){.folio-two .fulu-aside{min-height:0;gap:24px}}
+/* Equal top-to-top intervals, starting at the opening text line. */
+.folio-two .fulu-aside{align-self:start;grid-template-rows:repeat(3,minmax(0,1fr));min-height:0;gap:24px}
+.folio-two .margin-symbol{align-items:start}
+.folio-two .margin-symbol .discovery,.folio-two .margin-symbol .aside-fragment{align-self:start}
+.folio-two .margin-symbol{min-height:0}
+/* Equal intrinsic row heights also reserve room for the longest quotation. */
+.circuit-automaton{opacity:.18}
+
+/* Opaque binary replacement of swept circuit rows; unswept rows retain original artwork. */
+.circuit-automaton{opacity:1;filter:none;mix-blend-mode:normal}
+
+/* Opaque white replacement rows, with ink matching 24% black circuit strokes. */
+.circuit-automaton{opacity:1;filter:none;mix-blend-mode:normal}
+
+/* Mobile: manuscript rules remain, circuit artwork and animation are omitted. */
+@media(max-width:900px){
+  .circuit-margin{display:none!important;background-image:none!important}
+  .circuit-margin::before{display:none;background-image:none!important}
+}

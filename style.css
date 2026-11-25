@@ -246,3 +246,14 @@ main{position:relative}
   .folio-two .fulu-aside .margin-symbol .aside-fragment { align-self: center; width: 100%; max-width: 260px; text-align: center; margin: 0 auto; }
   .folio-two .fulu-aside .margin-symbol .aside-fragment[hidden] { display: none; }
 }
+
+/* Explicit desktop placement; mobile follows the text-first HTML order. */
+@media (min-width: 641px) {
+ .folio-two .reading > .copy { grid-column: 2; grid-row: 1; }
+ .folio-two .reading > .fulu-aside { grid-column: 1; grid-row: 1; }
+}
+@media (max-width: 640px) {
+ .folio-two #text.reading { display: flex !important; flex-direction: column !important; }
+ .folio-two #text.reading > .copy { order: 0 !important; }
+ .folio-two #text.reading > .fulu-aside { order: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; }
+}

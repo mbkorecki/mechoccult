@@ -235,3 +235,14 @@ main{position:relative}
   .folio-two .margin-symbol .discovery img{max-height:110px;object-fit:contain}
   .folio-two .margin-symbol .aside-fragment{width:100%;max-width:none;text-align:center;overflow-wrap:break-word}
 }
+
+/* Folio II: on phones, text precedes a centred vertical symbol column. */
+@media (max-width: 640px) {
+  .folio-two .reading { display: flex; flex-direction: column; gap: 28px; }
+  .folio-two .reading > .copy { order: 0; width: 100%; min-width: 0; }
+  .folio-two .reading > .fulu-aside { order: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; align-self: center; width: 100%; min-height: 0; padding: 0; gap: 28px; }
+  .folio-two .fulu-aside .margin-symbol { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 12px; width: 100%; margin: 0; padding: 0; }
+  .folio-two .fulu-aside .margin-symbol .discovery { flex: none; align-self: center; margin: 0 auto; }
+  .folio-two .fulu-aside .margin-symbol .aside-fragment { align-self: center; width: 100%; max-width: 260px; text-align: center; margin: 0 auto; }
+  .folio-two .fulu-aside .margin-symbol .aside-fragment[hidden] { display: none; }
+}

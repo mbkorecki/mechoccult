@@ -224,3 +224,14 @@ main{position:relative}
   .circuit-margin{display:none!important;background-image:none!important}
   .circuit-margin::before{display:none;background-image:none!important}
 }
+
+/* Narrow screens: read the text first, then explore the three symbols. */
+@media(max-width:640px){
+  .folio-two .reading{grid-template-columns:minmax(0,1fr)}
+  .folio-two .copy{grid-row:1}
+  .folio-two .fulu-aside{grid-row:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto;gap:12px;width:100%;align-items:start}
+  .folio-two .margin-symbol{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:110px auto;gap:10px;align-items:start}
+  .folio-two .margin-symbol .discovery{align-self:start;justify-self:center;max-height:110px}
+  .folio-two .margin-symbol .discovery img{max-height:110px;object-fit:contain}
+  .folio-two .margin-symbol .aside-fragment{width:100%;max-width:none;text-align:center;overflow-wrap:break-word}
+}
